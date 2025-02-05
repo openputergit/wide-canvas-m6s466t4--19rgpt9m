@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>कंपनी संख्याबळ अहवाल</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Marathi&display=swap');
+        * {
+            font-family: 'Noto Sans Marathi', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">कंपनी संख्याबळ अहवाल</h1>
+
+        <!-- Registration Form -->
+        <div id="registration" class="tab-content active bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-bold mb-4">नोंदणी फॉर्म</h2>
+            <form id="regForm" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block mb-1">नाव</label>
+                        <input type="text" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">पद</label>
+                        <input type="text" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">कंपनी</label>
+                        <select class="w-full p-2 border rounded" required>
+                            <option>कंपनी A</option>
+                            <option>कंपनी B</option>
+                            <option>कंपनी C</option>
+                            <option>कंपनी D</option>
+                            <option>कंपनी E</option>
+                            <option>कंपनी F</option>
+                            <option>कंपनी G</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block mb-1">ग्रुप नाव</label>
+                        <input type="text" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">संपर्क क्रमांक</label>
+                        <input type="tel" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">सध्याची पोस्टिंग</label>
+                        <input type="text" class="w-full p-2 border rounded" required>
+                    </div>
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">नोंदणी करा</button>
+            </form>
+        </div>
+
+        <!-- Daily Report Form -->
+        <div id="dailyReport" class="tab-content bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4">दैनिक अहवाल</h2>
+            <form id="reportForm" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block mb-1">कंपनी नायक नाव</label>
+                        <input type="text" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">कंपनी मेजर नाव</label>
+                        <input type="text" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">कंपनी नाव</label>
+                        <select class="w-full p-2 border rounded" required>
+                            <option>कंपनी A</option>
+                            <option>कंपनी B</option>
+                            <option>कंपनी C</option>
+                            <option>कंपनी D</option>
+                            <option>कंपनी E</option>
+                            <option>कंपनी F</option>
+                            <option>कंपनी G</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block mb-1">सध्याचे बंदोबस्त ठिकाण</label>
+                        <input type="text" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">कंपनीचे ऐकून संख्याबळ</label>
+                        <input type="number" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">किरकोळ रजा संख्या</label>
+                        <input type="number" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">अर्जित रजा संख्या</label>
+                        <input type="number" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">सिक रजा संख्या</label>
+                        <input type="number" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">गैरहजर संख्या</label>
+                        <input type="number" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">निलंबन संख्या</label>
+                        <input type="number" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">बडतर्फ संख्या</label>
+                        <input type="number" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1">टपाल ड्युटी संख्या</label>
+                        <input type="number" class="w-full p-2 border rounded" required>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">सबमिट करा</button>
+                    <button type="button" onclick="generatePDF()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">PDF डाउनलोड करा</button>
+                    <button type="button" onclick="printReport()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">प्रिंट करा</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- History Section -->
+        <div id="history" class="tab-content bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4">इतिहास</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-2">तारीख</th>
+                            <th class="p-2">कंपनी</th>
+                            <th class="p-2">एकूण संख्याबळ</th>
+                            <th class="p-2">उपस्थिती</th>
+                            <th class="p-2">रजा</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-center gap-4 mt-4">
+            <button onclick="showTab('registration')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">नोंदणी</button>
+            <button onclick="showTab('dailyReport')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">दैनिक अहवाल</button>
+            <button onclick="showTab('history')" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">इतिहास</button>
+        </div>
+    </div>
+
+    <script>
+        // Tab Navigation
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Form Submission
+        document.getElementById('regForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('नोंदणी यशस्वी झाली!');
+        });
+
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveToHistory();
+            alert('अहवाल सबमिट केला!');
+        });
+
+        // Save to History
+        function saveToHistory() {
+            const date = new Date().toLocaleDateString('mr-IN');
+            const company = document.querySelector('select').value;
+            const total = document.querySelector('input[placeholder="एकूण संख्याबळ"]').value;
+            
+            const historyData = JSON.parse(localStorage.getItem('historyData') || '[]');
+            historyData.push({ date, company, total });
+            localStorage.setItem('historyData', JSON.stringify(historyData));
+            
+            updateHistoryTable();
+        }
+
+        // Update History Table
+        function updateHistoryTable() {
+            const historyData = JSON.parse(localStorage.getItem('historyData') || '[]');
+            const tbody = document.getElementById('historyTableBody');
+            tbody.innerHTML = '';
+            
+            historyData.forEach(entry => {
+                const row = tbody.insertRow();
+                row.insertCell(0).textContent = entry.date;
+                row.insertCell(1).textContent = entry.company;
+                row.insertCell(2).textContent = entry.total;
+            });
+        }
+
+        // Print Report
+        function printReport() {
+            window.print();
+        }
+
+        // Generate PDF
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            doc.setFont("Noto Sans Marathi");
+            doc.text("कंपनी संख्याबळ अहवाल", 10, 10);
+            
+            // Add form data to PDF
+            const formData = new FormData(document.getElementById('reportForm'));
+            let yPosition = 30;
+            for (let pair of formData.entries()) {
+                doc.text(`${pair[0]}: ${pair[1]}`, 10, yPosition);
+                yPosition += 10;
+            }
+            
+            doc.save("company-report.pdf");
+        }
+
+        // Initialize
+        updateHistoryTable();
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
